@@ -12,7 +12,7 @@ class NoteList extends Component {
                     <div
                         key={note.id}
                         id={note.id}
-                        class="note"
+                        className="note"
                         onClick={e => this.handleClick(e)}
                     >
                         {note.title}
