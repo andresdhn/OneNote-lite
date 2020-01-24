@@ -10,6 +10,7 @@ class App extends Component {
 
         this.state = {
             editing: false,
+            selected: [],
             notes: [],
         }
     }
@@ -22,6 +23,13 @@ class App extends Component {
         this.setState({ notes: newNotes })
     }
 
+    handleNoteSelected = id => {
+        let selectedNote = this.state.selected.filter(note => note.id === id)
+        if (selectedNote) {
+            this.setState({ editing: true, selected: selectedNote })
+        }
+    }
+
     render() {
         return (
             <Wrapper>
@@ -29,9 +37,12 @@ class App extends Component {
                 <section id="notes">
                     <div className="container">
                         {this.state.editing ? (
-                            <NotePad />
+                            <NotePad note={this.state.selected} />
                         ) : (
-                            <NoteList list={this.state.notes} />
+                            <NoteList
+                                list={this.state.notes}
+                                onNoteSelected={this.handleNoteSelected}
+                            />
                         )}
                     </div>
                 </section>

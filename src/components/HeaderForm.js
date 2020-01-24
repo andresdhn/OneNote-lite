@@ -22,6 +22,7 @@ class HeaderForm extends Component {
         return (
             <div id="HeaderForm">
                 <form onSubmit={e => this.handleSubmit(e)}>
+                    {/* Todo: Create Note Editing Heading */}
                     <div className="form__group">
                         <input
                             type="text"
