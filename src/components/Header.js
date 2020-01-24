@@ -3,6 +3,8 @@ import HeaderForm from './HeaderForm'
 //
 export default props => (
     <section id="header">
-        <HeaderForm />
+        <div className="container">
+            <HeaderForm />
+        </div>
     </section>
 )

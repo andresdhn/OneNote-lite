@@ -18,11 +18,18 @@ class HeaderForm extends Component {
             <div id="HeaderForm">
                 <form onSubmit={e => this.handleSubmit(e)}>
                     <div className="form__group">
-                        <imput
+                        <input
+                            type="text"
                             className="form__control"
+                            placeholder="Add a new note"
                             onChange={e =>
                                 this.setState({ notename: e.target.value })
                             }
+                        />
+                        <input
+                            type="submit"
+                            className="form__control"
+                            value="Save"
                         />
                     </div>
                 </form>
