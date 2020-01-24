@@ -1,0 +1,15 @@
+#notelist {
+    .note {
+        display: block;
+        padding: 1em;
+        margin-bottom: 0.5em;
+        border: 1px solid $color-gray;
+        border-radius: 15px;
+        background-color: rgba($color-black, 0.2);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba($color-black, 0.4);
+        }
+    }
+}

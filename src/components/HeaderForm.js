@@ -8,9 +8,14 @@ class HeaderForm extends Component {
         }
     }
 
+    clearTextBox = () => {
+        this.setState({ notename: '' })
+    }
+
     handleSubmit = e => {
         e.preventDefault()
         this.props.onNoteSubmitted(this.state.notename)
+        this.clearTextBox()
     }
 
     render() {
@@ -22,6 +27,7 @@ class HeaderForm extends Component {
                             type="text"
                             className="form__control"
                             placeholder="Add a new note"
+                            value={this.state.notename}
                             onChange={e =>
                                 this.setState({ notename: e.target.value })
                             }

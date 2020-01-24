@@ -9,14 +9,14 @@ class NoteList extends Component {
         return (
             <div id="notelist">
                 {this.props.list.map(note => (
-                    <div
+                    <article
                         key={note.id}
                         id={note.id}
                         className="note"
                         onClick={e => this.handleClick(e)}
                     >
                         {note.title}
-                    </div>
+                    </article>
                 ))}
             </div>
         )
