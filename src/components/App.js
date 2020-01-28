@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Wrapper from './Wrapper'
-import CreateForm from './CreateForm'
+import TopForm from './TopForm'
 import NoteList from './NoteList'
 import Note from './Note'
 //
@@ -10,7 +10,7 @@ class App extends Component {
 
         this.state = {
             editing: false,
-            selectedId: 0,
+            openNote: {},
             notes: [],
         }
     }
@@ -24,13 +24,16 @@ class App extends Component {
     }
 
     handleNoteSelected = id => {
-        this.setState({ editing: true, selectedId: Number(id) })
+        let openNote = this.state.notes.filter(note => note.id === parseInt(id))
+        if (openNote) {
+            this.setState({ editing: true, openNote: openNote[0] })
+        }
     }
 
     handleNoteChanged = body => {
         let notes = [...this.state.notes]
         let noteIndex = notes.findIndex(
-            notes => notes.id === this.state.selectedId
+            notes => notes.id === this.state.openNote.id
         )
         notes[noteIndex].body = body
 
@@ -42,16 +45,18 @@ class App extends Component {
             <Wrapper>
                 <section id="header">
                     <div className="container">
-                        <CreateForm onNewNote={this.handleNewNote} />
+                        <TopForm
+                            title={this.state.openNote.title}
+                            editing={this.state.editing}
+                            onNewNote={this.handleNewNote}
+                        />
                     </div>
                 </section>
                 <section id="content">
                     <div className="container">
                         {this.state.editing ? (
                             <Note
-                                id={this.state.selectedId}
-                                title={this.state.selectedTitle}
-                                body={this.state.selectedBody}
+                                body={this.state.openNote.body}
                                 onNoteChanged={this.handleNoteChanged}
                             />
                         ) : (

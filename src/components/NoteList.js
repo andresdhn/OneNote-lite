@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 //
-class NoteList extends Component {
-    handleClick = e => {
-        this.props.onNoteSelected(e.target.id)
+export default props => {
+    const handleClick = e => {
+        props.onNoteSelected(e.target.id)
     }
 
-    render() {
-        return (
-            <div id="notelist">
-                {this.props.list.map(note => (
-                    <article
-                        key={note.id}
-                        id={note.id}
-                        className="note"
-                        onClick={e => this.handleClick(e)}
-                    >
-                        {note.title}
-                    </article>
-                ))}
-            </div>
-        )
-    }
+    return (
+        <div id="notelist">
+            {props.list.map(note => (
+                <article
+                    key={note.id}
+                    id={note.id}
+                    className="note"
+                    onClick={handleClick}
+                >
+                    {note.title}
+                </article>
+            ))}
+        </div>
+    )
 }
-export default NoteList

@@ -1,22 +1,31 @@
 import React, { Component } from 'react'
+import Button from './Button'
 //
 class Note extends Component {
     constructor() {
         super()
         this.handleChange = this.handleChange.bind(this)
         this.state = {
-            id: 0,
-            title: '',
             body: '',
         }
     }
 
     componentDidMount() {
-        this.setState({ body: this.props.notebody })
+        this.setState({
+            body: this.props.body,
+        })
     }
 
     handleChange = e => {
-        this.setState({ notebody: e.target.value })
+        this.setState({ body: e.target.value })
+    }
+
+    handleClear = () => {
+        this.setState({ body: '' })
+    }
+
+    handleSave = () => {
+        this.props.onNoteChanged(this.state.body)
     }
 
     render() {
@@ -24,9 +33,17 @@ class Note extends Component {
             <article className="note">
                 <textarea
                     onChange={this.handleChange}
-                    value={this.state.notebody}
+                    value={this.state.body}
                     placeholder="What's on your mind?..."
                 ></textarea>
+                <div className="form__group">
+                    <Button color="gray" onClicked={this.handleClear}>
+                        Clear
+                    </Button>
+                    <Button color="green" onClicked={this.handleSave}>
+                        Save
+                    </Button>
+                </div>
             </article>
         )
     }
