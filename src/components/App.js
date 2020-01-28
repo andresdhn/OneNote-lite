@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Wrapper from './Wrapper'
-import Header from './Header'
+import CreateForm from './CreateForm'
 import NoteList from './NoteList'
-import NotePad from './NotePad'
+import Note from './Note'
 //
 class App extends Component {
     constructor() {
@@ -10,7 +10,7 @@ class App extends Component {
 
         this.state = {
             editing: false,
-            selected: [],
+            selectedId: 0,
             notes: [],
         }
     }
@@ -24,20 +24,36 @@ class App extends Component {
     }
 
     handleNoteSelected = id => {
-        let selectedNote = this.state.selected.filter(note => note.id === id)
-        if (selectedNote) {
-            this.setState({ editing: true, selected: selectedNote })
-        }
+        this.setState({ editing: true, selectedId: Number(id) })
+    }
+
+    handleNoteChanged = body => {
+        let notes = [...this.state.notes]
+        let noteIndex = notes.findIndex(
+            notes => notes.id === this.state.selectedId
+        )
+        notes[noteIndex].body = body
+
+        this.setState({ editing: false, selectedId: 0, notes: notes })
     }
 
     render() {
         return (
             <Wrapper>
-                <Header onNoteSubmitted={this.handleNewNote} />
-                <section id="notes">
+                <section id="header">
+                    <div className="container">
+                        <CreateForm onNewNote={this.handleNewNote} />
+                    </div>
+                </section>
+                <section id="content">
                     <div className="container">
                         {this.state.editing ? (
-                            <NotePad note={this.state.selected} />
+                            <Note
+                                id={this.state.selectedId}
+                                title={this.state.selectedTitle}
+                                body={this.state.selectedBody}
+                                onNoteChanged={this.handleNoteChanged}
+                            />
                         ) : (
                             <NoteList
                                 list={this.state.notes}

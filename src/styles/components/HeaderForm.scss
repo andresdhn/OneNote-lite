@@ -9,7 +9,7 @@
     display: block;
     padding: 0.5em;
     margin: 0 0.5em;
-    border-radius: 15px;
+    border-radius: 10px;
     outline: none;
 
     &[type='text'] {
@@ -19,16 +19,5 @@
         border: 1px solid $color-gray;
         background-color: $color-white;
         color: $color-text;
-    }
-
-    &[type='submit'] {
-        border: 1px solid transparent;
-        background-color: green;
-        color: $color-white;
-
-        &:hover {
-            background-color: rgba(0, 150, 0, 0.5);
-            color: $color-text;
-        }
     }
 }
