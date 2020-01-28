@@ -2,8 +2,16 @@ import React from 'react'
 import Fade from 'react-reveal/Fade'
 //
 export default props => {
-    const handleClick = e => {
+    const handleSelected = e => {
+        e.stopPropagation()
         props.onNoteSelected(e.target.id)
+    }
+
+    const handleDelete = e => {
+        e.stopPropagation()
+        if (window.confirm('Are you sure you wish to delete this note?')) {
+            props.onNoteRemove(e.target.closest('.list__item').id)
+        }
     }
 
     return (
@@ -13,10 +21,11 @@ export default props => {
                     <article
                         key={note.id}
                         id={note.id}
-                        className="note"
-                        onClick={handleClick}
+                        className="list__item"
+                        onClick={handleSelected}
                     >
                         {note.title}
+                        <span onClick={handleDelete}></span>
                     </article>
                 ))}
             </div>

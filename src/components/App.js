@@ -40,6 +40,21 @@ class App extends Component {
         this.setState({ editing: false, selectedId: 0, notes: notes })
     }
 
+    handleNoteRemove = id => {
+        // Filter Removed item + Sorts list higher to lower id
+        let notes = [...this.state.notes]
+            .filter(note => note.id !== parseInt(id))
+            .sort((a, b) => a > b)
+
+        // Reorder list and redo Ids
+        let newNotes = notes.map((note, index) => {
+            note.id = index + 1
+            return note
+        })
+
+        this.setState({ notes: newNotes })
+    }
+
     render() {
         return (
             <Wrapper>
@@ -62,6 +77,7 @@ class App extends Component {
                         ) : (
                             <NoteList
                                 list={this.state.notes}
+                                onNoteRemove={this.handleNoteRemove}
                                 onNoteSelected={this.handleNoteSelected}
                             />
                         )}

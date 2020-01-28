@@ -21,7 +21,9 @@ class Note extends Component {
     }
 
     handleClear = () => {
-        this.setState({ body: '' })
+        if (window.confirm('Are you sure you want to clear this note?')) {
+            this.setState({ body: '' })
+        }
     }
 
     handleSave = () => {
