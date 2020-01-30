@@ -9,8 +9,7 @@ class App extends Component {
         super()
 
         this.state = {
-            editing: false,
-            openNote: {},
+            editing: true,
             notes: [],
         }
     }
@@ -58,31 +57,7 @@ class App extends Component {
     render() {
         return (
             <Wrapper>
-                <section id="header">
-                    <div className="container">
-                        <TopForm
-                            title={this.state.openNote.title}
-                            editing={this.state.editing}
-                            onNewNote={this.handleNewNote}
-                        />
-                    </div>
-                </section>
-                <section id="content">
-                    <div className="container">
-                        {this.state.editing ? (
-                            <Note
-                                body={this.state.openNote.body}
-                                onNoteChanged={this.handleNoteChanged}
-                            />
-                        ) : (
-                            <NoteList
-                                list={this.state.notes}
-                                onNoteRemove={this.handleNoteRemove}
-                                onNoteSelected={this.handleNoteSelected}
-                            />
-                        )}
-                    </div>
-                </section>
+                <Note onNoteChanged={this.handleNoteChanged} />
             </Wrapper>
         )
     }

@@ -32,21 +32,26 @@ class Note extends Component {
 
     render() {
         return (
-            <article className="note">
-                <textarea
-                    onChange={this.handleChange}
-                    value={this.state.body}
-                    placeholder="What's on your mind?..."
-                ></textarea>
-                <div className="form__group">
-                    <Button color="gray" onClicked={this.handleClear}>
-                        Clear
-                    </Button>
-                    <Button color="green" onClicked={this.handleSave}>
-                        Save
-                    </Button>
-                </div>
-            </article>
+            <div className="note">
+                <section id="header">
+                    <div className="container">{this.state.title}</div>
+                </section>
+                <section id="body">
+                    <textarea
+                        onChange={this.handleChange}
+                        value={this.state.body}
+                        placeholder="What's on your mind?..."
+                    ></textarea>
+                    <div className="form__group">
+                        <Button color="gray" onClicked={this.handleClear}>
+                            Clear
+                        </Button>
+                        <Button color="green" onClicked={this.handleSave}>
+                            Save
+                        </Button>
+                    </div>
+                </section>
+            </div>
         )
     }
 }

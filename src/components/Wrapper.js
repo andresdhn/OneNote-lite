@@ -1,3 +1,3 @@
 import React from 'react'
 //
-export default props => <main>{props.children}</main>
+export default props => <main id="content">{props.children}</main>
