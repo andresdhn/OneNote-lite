@@ -4,19 +4,19 @@ import Button from './Button'
 class Note extends Component {
     constructor() {
         super()
-        this.handleChange = this.handleChange.bind(this)
+        this.handleTitleChange = this.handleTitleChange.bind(this)
+        this.handleBodyChange = this.handleBodyChange.bind(this)
         this.state = {
+            title: '',
             body: '',
         }
     }
 
-    componentDidMount() {
-        this.setState({
-            body: this.props.body,
-        })
+    handleTitleChange = e => {
+        this.setState({ title: e.target.value })
     }
 
-    handleChange = e => {
+    handleBodyChange = e => {
         this.setState({ body: e.target.value })
     }
 
@@ -27,21 +27,37 @@ class Note extends Component {
     }
 
     handleSave = () => {
-        this.props.onNoteChanged(this.state.body)
+        this.props.onNoteSaved({
+            title: this.state.title,
+            body: this.state.body,
+        })
     }
 
     render() {
         return (
-            <div className="note">
+            <div id="note">
                 <section id="header">
-                    <div className="container">{this.state.title}</div>
+                    <div className="container">
+                        <input
+                            type="text"
+                            className="note__title"
+                            placeholder="Title..."
+                            value={this.state.title}
+                            onChange={this.handleTitleChange}
+                        />
+                    </div>
                 </section>
                 <section id="body">
-                    <textarea
-                        onChange={this.handleChange}
-                        value={this.state.body}
-                        placeholder="What's on your mind?..."
-                    ></textarea>
+                    <div className="container">
+                        <textarea
+                            className="note__body"
+                            onChange={this.handleBodyChange}
+                            value={this.state.body}
+                            placeholder="What's on your mind?..."
+                        ></textarea>
+                    </div>
+                </section>
+                <section id="footer">
                     <div className="form__group">
                         <Button color="gray" onClicked={this.handleClear}>
                             Clear

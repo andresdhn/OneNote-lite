@@ -27,15 +27,6 @@ class TopForm extends Component {
                     <h1>{this.props.title}</h1>
                 ) : (
                     <div className="form__group">
-                        <input
-                            type="text"
-                            className="form__control"
-                            placeholder="Add a new note"
-                            value={this.state.title}
-                            onChange={e =>
-                                this.setState({ title: e.target.value })
-                            }
-                        />
                         <Button color="green" onClicked={this.handleSubmit}>
                             Save
                         </Button>
