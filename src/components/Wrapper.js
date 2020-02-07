@@ -1,3 +1,5 @@
 import React from 'react'
 //
-export default props => <main id="content">{props.children}</main>
+const Wrapper = props => <main id="content">{props.children}</main>
+
+export default Wrapper
