@@ -1,4 +1,10 @@
 #note {
+    min-height: 700px;
+
+    .note__header {
+        border-bottom: 2px solid rgba($color-gray, 0.5);
+    }
+
     .note__title {
         display: block;
         min-width: 100px;

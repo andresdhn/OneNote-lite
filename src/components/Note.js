@@ -2,7 +2,7 @@ import React from 'react'
 //
 const Note = props => (
     <div id="note">
-        <section id="header">
+        <section className="note__header">
             <div className="container">
                 <input
                     type="text"
@@ -13,7 +13,7 @@ const Note = props => (
                 />
             </div>
         </section>
-        <section id="body">
+        <section className="note__body">
             <div className="container">
                 <textarea
                     className="note__body"

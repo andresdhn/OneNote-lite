@@ -7,7 +7,7 @@
 body {
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 400;
-    font-size: calc(14px + 0.6vh);
+    font-size: calc(12px + 0.5vh);
     margin: 0;
     padding: 0;
     color: $color-text;
@@ -20,7 +20,7 @@ main {
 }
 
 section {
-    padding: 3em 0;
+    padding: 2em 0;
 }
 
 .container {
@@ -30,12 +30,8 @@ section {
     padding: 0 5%;
 }
 
-#header {
-    border-bottom: 2px solid rgba($color-gray, 0.5);
-}
-
 #footer {
     position: absolute;
-    width: 100%;
     bottom: 0;
+    width: 100%;
 }

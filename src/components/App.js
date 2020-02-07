@@ -71,6 +71,7 @@ class App extends Component {
                         <Button color="gray" onClick={this.handleSave}>
                             Save
                         </Button>
+                        {/* TODO:  Move Add and Delete functionality to the list component (Makes sense) */}
                         {this.state.editing && (
                             <Button color="blank" onClick={this.handleDelete}>
                                 <img
