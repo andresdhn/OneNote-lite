@@ -33,3 +33,9 @@ section {
 #header {
     border-bottom: 2px solid rgba($color-gray, 0.5);
 }
+
+#footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}

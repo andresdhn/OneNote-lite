@@ -1,28 +1,25 @@
+@mixin buttons($bgcolor, $textcolor) {
+    background-color: $bgcolor;
+    color: $textcolor;
+
+    &:hover {
+        background-color: darken($bgcolor, 20%);
+    }
+}
+
 .btn {
-    display: block;
+    display: inline-block;
     padding: 0.5em;
     margin: 0 0.5em;
     border-radius: 10px;
     outline: none;
     cursor: pointer;
 
-    &--green {
-        border: 1px solid transparent;
-        background-color: $color-green;
-        color: $color-white;
-
-        &:hover {
-            background-color: darken($color-green, 10%);
-        }
+    &--blank {
+        @include buttons(transparent, $color-text);
     }
 
     &--gray {
-        border: 1px solid transparent;
-        background-color: $color-gray-lite;
-        color: $color-white;
-
-        &:hover {
-            background-color: darken($color-gray-lite, 10%);
-        }
+        @include buttons($color-gray-lite, $color-white);
     }
 }

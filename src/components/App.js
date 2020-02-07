@@ -9,6 +9,7 @@ class App extends Component {
         this.state = {
             active: { id: 0, title: '', body: '' },
             notes: [],
+            editing: false,
         }
     }
 
@@ -24,9 +25,12 @@ class App extends Component {
         this.setState({ active: active })
     }
 
-    handleSave = e => {
-        let notes = [...this.state.notes]
+    handleSave = () => {
+        if (this.state.active.title === '' && this.state.active.body === '') {
+            return false
+        }
 
+        let notes = [...this.state.notes]
         let note = notes.filter(note => note.id === this.state.active.id)
         if (note.length > 0) {
             notes = notes.map(val => {
@@ -40,7 +44,16 @@ class App extends Component {
             notes.push(this.state.active)
         }
 
-        this.setState({ notes: notes })
+        this.setState({ notes: notes, editing: true })
+    }
+
+    handleNew = e => {
+        let lastNote = this.state.notes.length
+
+        if (lastNote > 0) {
+            let newActive = { id: lastNote + 1, title: '', body: '' }
+            this.setState({ active: newActive, editing: false })
+        }
     }
 
     render() {
@@ -53,13 +66,25 @@ class App extends Component {
                     onTitleChange={this.handleTitleChange}
                     onBodyChange={this.handleBodyChange}
                 />
-                <footer>
+                <section id="footer">
                     <div className="container">
                         <Button color="gray" onClick={this.handleSave}>
-                            Save me
+                            Save
+                        </Button>
+                        {this.state.editing && (
+                            <Button color="blank" onClick={this.handleDelete}>
+                                <img
+                                    src="./icon-delete.png"
+                                    width="20"
+                                    alt="delete note"
+                                />
+                            </Button>
+                        )}
+                        <Button color="blank" onClick={this.handleNew}>
+                            <label title="Add new">+</label>
                         </Button>
                     </div>
-                </footer>
+                </section>
             </Wrapper>
         )
     }
