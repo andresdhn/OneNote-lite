@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Wrapper from './Wrapper'
 import Note from './Note'
+import List from './List'
 import Button from './Button'
 //
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
             active: { id: 0, title: '', body: '' },
             notes: [],
             editing: false,
+            showList: false,
         }
     }
 
@@ -51,14 +53,29 @@ class App extends Component {
         let lastNote = this.state.notes.length
 
         if (lastNote > 0) {
-            let newActive = { id: lastNote + 1, title: '', body: '' }
+            let newActive = { id: lastNote, title: '', body: '' }
             this.setState({ active: newActive, editing: false })
         }
+    }
+
+    toggleList = e => {
+        this.setState({ showList: !this.state.showList })
+    }
+
+    handleSelected = e => {
+        let notes = [...this.state.notes]
+        let newActive = notes.filter(note => note.id === Number(e.target.id))[0]
+        this.setState({ active: newActive, showList: false })
     }
 
     render() {
         return (
             <Wrapper>
+                <List
+                    show={this.state.showList}
+                    notes={this.state.notes}
+                    onSelected={this.handleSelected}
+                ></List>
                 <Note
                     id={this.state.active.id}
                     title={this.state.active.title}
@@ -68,19 +85,19 @@ class App extends Component {
                 />
                 <section id="footer">
                     <div className="container">
-                        <Button color="gray" onClick={this.handleSave}>
+                        <Button color="blank" onClick={this.toggleList}>
+                            <label title="Add new">=</label>
+                        </Button>
+                        <Button
+                            color={`${
+                                this.state.active.title.length > 0
+                                    ? 'green'
+                                    : 'gray'
+                            }`}
+                            onClick={this.handleSave}
+                        >
                             Save
                         </Button>
-                        {/* TODO:  Move Add and Delete functionality to the list component (Makes sense) */}
-                        {this.state.editing && (
-                            <Button color="blank" onClick={this.handleDelete}>
-                                <img
-                                    src="./icon-delete.png"
-                                    width="20"
-                                    alt="delete note"
-                                />
-                            </Button>
-                        )}
                         <Button color="blank" onClick={this.handleNew}>
                             <label title="Add new">+</label>
                         </Button>

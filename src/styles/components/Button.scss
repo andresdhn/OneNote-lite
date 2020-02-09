@@ -19,6 +19,10 @@
         @include buttons(transparent, $color-text);
     }
 
+    &--green {
+        @include buttons($color-green, $color-white);
+    }
+
     &--gray {
         @include buttons($color-gray-lite, $color-white);
     }

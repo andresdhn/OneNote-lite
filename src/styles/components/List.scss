@@ -1,0 +1,29 @@
+#list {
+    position: fixed;
+    top: 0;
+    left: -50%;
+    height: 100vh;
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+    z-index: 99;
+    background-color: $color-white;
+    border-right: 1px solid $color-gray-lite;
+
+    &.list--open {
+        left: 0;
+    }
+}
+
+.list__item {
+    padding: 1.5em 1em;
+    border-bottom: 1px solid $color-gray-lite;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($color-white, 20%);
+    }
+}
