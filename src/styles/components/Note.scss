@@ -1,8 +1,9 @@
 #note {
+    margin-left: $nav-width;
     min-height: 700px;
 
     .note__header {
-        border-bottom: 2px solid rgba($color-gray, 0.5);
+        border-bottom: 1px solid rgba($color-gray, 0.5);
     }
 
     .note__title {

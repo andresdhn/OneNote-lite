@@ -1,9 +1,10 @@
 #list {
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: -50%;
+    left: -100%;
+    width: calc(100vw - 70px);
     height: 100vh;
-    width: 50%;
+    margin-left: $nav-width;
 
     display: flex;
     flex-direction: column;
@@ -13,17 +14,37 @@
     background-color: $color-white;
     border-right: 1px solid $color-gray-lite;
 
+    @media screen and (min-width: $sm) {
+        left: -400px;
+        width: 400px;
+    }
+
     &.list--open {
         left: 0;
+        margin-left: $nav-width;
+    }
+
+    .list__item {
+        padding: 1.5em 1em;
+        border-bottom: 1px solid $color-gray-lite;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($color-white, 20%);
+        }
     }
 }
+.list__container,
+.list__header {
+    padding: 1em 2em;
+}
 
-.list__item {
-    padding: 1.5em 1em;
-    border-bottom: 1px solid $color-gray-lite;
-    cursor: pointer;
+.list__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    &:hover {
-        background-color: darken($color-white, 20%);
+    .btn {
+        margin-left: auto;
     }
 }

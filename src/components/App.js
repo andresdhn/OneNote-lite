@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import Wrapper from './Wrapper'
 import Note from './Note'
 import List from './List'
-import Button from './Button'
+import Nav from './Nav'
+
 //
 class App extends Component {
     constructor() {
@@ -75,6 +76,7 @@ class App extends Component {
                     show={this.state.showList}
                     notes={this.state.notes}
                     onSelected={this.handleSelected}
+                    onToggle={this.toggleList}
                 ></List>
                 <Note
                     id={this.state.active.id}
@@ -83,26 +85,11 @@ class App extends Component {
                     onTitleChange={this.handleTitleChange}
                     onBodyChange={this.handleBodyChange}
                 />
-                <section id="footer">
-                    <div className="container">
-                        <Button color="blank" onClick={this.toggleList}>
-                            <label title="Add new">=</label>
-                        </Button>
-                        <Button
-                            color={`${
-                                this.state.active.title.length > 0
-                                    ? 'green'
-                                    : 'gray'
-                            }`}
-                            onClick={this.handleSave}
-                        >
-                            Save
-                        </Button>
-                        <Button color="blank" onClick={this.handleNew}>
-                            <label title="Add new">+</label>
-                        </Button>
-                    </div>
-                </section>
+                <Nav
+                    onToggleList={this.toggleList}
+                    active={this.state.active}
+                    onNewNote={this.handleNew}
+                />
             </Wrapper>
         )
     }

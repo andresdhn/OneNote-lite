@@ -1,0 +1,15 @@
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $nav-width;
+    height: 100%;
+    z-index: 999;
+    background-color: $color-white;
+    border-right: 1px solid $color-gray-lite;
+
+    .btn {
+        display: block;
+        text-align: center;
+    }
+}
