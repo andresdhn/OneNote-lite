@@ -29,6 +29,7 @@
         }
     }
 }
+
 .list__container,
 .list__header {
     padding: 1em 2em;
@@ -44,12 +45,12 @@
     }
 }
 
-.list__container{
+.list__container {
     color: lighten($color-text, 40%);
 }
 
 .list--open {
-    #list{
+    #list {
         left: 0;
         margin-left: $nav-width;
     }

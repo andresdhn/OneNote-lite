@@ -14,6 +14,7 @@ const Note = props => (
         </section>
         <section className="note__body">
             <div className="container">
+                <label>{props.date}</label>
                 <textarea
                     onChange={props.onBodyChange}
                     value={props.body}

@@ -4,11 +4,14 @@ import Button from './Button'
 const Nav = props => {
     return (
         <div id="nav">
-            <Button color="blank" title="List" onClick={props.onToggleList}>
+            <Button title="List" onClick={props.onToggleList}>
                 =
             </Button>
-            <Button color="blank" title="Add new" onClick={props.onNewNote}>
+            <Button title="Add new" onClick={props.onNewNote}>
                 +
+            </Button>
+            <Button title="Add new" onClick={props.onSave}>
+                &#10004;
             </Button>
         </div>
     )

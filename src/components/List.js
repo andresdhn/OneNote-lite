@@ -6,8 +6,8 @@ const List = props => {
         <div id="list" className={props.show ? 'list--open' : ''}>
             <div className="list__header">
                 <h2>Your notes</h2>
-                <Button color="blank" onClick={props.onToggle}>
-                    X
+                <Button title="close" onClick={props.onToggle}>
+                    x
                 </Button>
             </div>
             <div className="list__container">

@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
+import getFullDate from '../utils/getFullDate'
 import Wrapper from './Wrapper'
 import Note from './Note'
 import List from './List'
 import Nav from './Nav'
-
 //
+
 class App extends Component {
     constructor() {
         super()
+
         this.state = {
-            active: { id: 0, title: '', body: '' },
+            active: { id: 0, title: '', body: '', date: getFullDate() },
             notes: [],
             editing: false,
             showList: false,
@@ -82,6 +84,7 @@ class App extends Component {
                     id={this.state.active.id}
                     title={this.state.active.title}
                     body={this.state.active.body}
+                    date={this.state.active.date}
                     onTitleChange={this.handleTitleChange}
                     onBodyChange={this.handleBodyChange}
                 />
@@ -89,6 +92,7 @@ class App extends Component {
                     onToggleList={this.toggleList}
                     active={this.state.active}
                     onNewNote={this.handleNew}
+                    onSave={this.handleSave}
                 />
             </Wrapper>
         )
