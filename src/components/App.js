@@ -8,13 +8,22 @@ import Nav from './Nav'
 class App extends Component {
     constructor() {
         super()
-
+        this.newId = Date.now()
         this.state = {
-            active: { id: 0, title: '', body: '', date: getFullDate() },
+            active: {
+                id: this.newId,
+                title: '',
+                body: '',
+                date: getFullDate(),
+            },
             notes: [],
             editing: false,
             showList: false,
         }
+    }
+
+    toggleList = e => {
+        this.setState({ showList: !this.state.showList })
     }
 
     handleTitleChange = e => {
@@ -37,10 +46,12 @@ class App extends Component {
         let notes = [...this.state.notes]
         let note = notes.filter(note => note.id === this.state.active.id)
         if (note.length > 0) {
+            //TODO: Feel like this is wrong - check later
             notes = notes.map(val => {
                 if (val.id === note.id) {
                     val.title = note.title
                     val.body = note.body
+                    val.date = note.date
                 }
                 return val
             })
@@ -51,23 +62,31 @@ class App extends Component {
         this.setState({ notes: notes, editing: true })
     }
 
-    handleNew = e => {
-        let lastNote = this.state.notes.length
-
-        if (lastNote > 0) {
-            let newActive = { id: lastNote, title: '', body: '' }
-            this.setState({ active: newActive })
+    handleNew = () => {
+        let newActive = {
+            id: Date.now(),
+            title: '',
+            body: '',
+            date: getFullDate(),
         }
-    }
-
-    toggleList = e => {
-        this.setState({ showList: !this.state.showList })
+        this.setState({ active: newActive })
     }
 
     handleSelected = e => {
         let notes = [...this.state.notes]
         let newActive = notes.filter(note => note.id === Number(e.target.id))[0]
         this.setState({ active: newActive })
+    }
+
+    handleDelete = (e, id) => {
+        e.stopPropagation()
+        if (window.confirm('Are you sure you wish to delete this note?')) {
+            let notes = [...this.state.notes]
+            let newNotes = notes.filter(note => note.id !== id)
+
+            this.setState({ notes: newNotes })
+            this.handleNew()
+        }
     }
 
     render() {
@@ -78,6 +97,7 @@ class App extends Component {
                     notes={this.state.notes}
                     onSelected={this.handleSelected}
                     onToggle={this.toggleList}
+                    onDelete={this.handleDelete}
                 ></List>
                 <Note
                     id={this.state.active.id}

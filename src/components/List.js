@@ -7,7 +7,7 @@ const List = props => {
             <div className="list__header">
                 <h2>Your notes</h2>
                 <Button title="close" onClick={props.onToggle}>
-                    x
+                    &lt;
                 </Button>
             </div>
             <div className="list__container">
@@ -20,6 +20,12 @@ const List = props => {
                             onClick={props.onSelected}
                         >
                             {note.title}
+                            <Button
+                                title="delete"
+                                onClick={e => props.onDelete(e, note.id)}
+                            >
+                                &#10008;
+                            </Button>
                         </div>
                     ))
                 ) : (
