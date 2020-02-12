@@ -5,7 +5,6 @@ import Note from './Note'
 import List from './List'
 import Nav from './Nav'
 //
-
 class App extends Component {
     constructor() {
         super()

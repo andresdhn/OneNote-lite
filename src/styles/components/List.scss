@@ -20,17 +20,20 @@
     }
 
     .list__item {
-        padding: 1.5em 1em;
+        padding: 1em 2em;
         border-bottom: 1px solid $color-gray-lite;
         cursor: pointer;
 
+        &:first-child {
+            border-top: 1px solid $color-gray-lite;
+        }
+
         &:hover {
-            background-color: darken($color-white, 20%);
+            background-color: darken($color-white, 10%);
         }
     }
 }
 
-.list__container,
 .list__header {
     padding: 1em 2em;
 }
@@ -46,7 +49,9 @@
 }
 
 .list__container {
-    color: lighten($color-text, 40%);
+    label {
+        color: lighten($color-text, 40%);
+    }
 }
 
 .list--open {

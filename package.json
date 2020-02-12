@@ -1,6 +1,6 @@
 {
-    "name": "noteApp",
-    "version": "0.1.0",
+    "name": "OneNote-lite",
+    "version": "1.0.0",
     "private": true,
     "dependencies": {
         "node-sass": "^4.13.1",
