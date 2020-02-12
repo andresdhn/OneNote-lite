@@ -1,10 +1,14 @@
 #note {
     position: absolute;
     left: 0;
-    width: calc(100vw - 70px);
-    margin-left: $nav-width;
-    min-height: 700px;
+    margin-left: 0;
+    width: 100vw;
     transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+
+    @media screen and (min-width: $sm) {
+        margin-left: $nav-width;
+        width: calc(100vw - 70px);
+    }
 
     .note__title {
         padding: 2em 0 1em 0;

@@ -2,9 +2,7 @@
     position: absolute;
     top: 0;
     left: -100%;
-    width: calc(100vw - 70px);
-    height: 100vh;
-    margin-left: $nav-width;
+    width: 100vw;
 
     display: flex;
     flex-direction: column;
@@ -17,11 +15,14 @@
     @media screen and (min-width: $sm) {
         left: -400px;
         width: 400px;
+        height: 100vh;
+        margin-left: $nav-width;
     }
 
     .list__container {
         label {
             color: lighten($color-text, 40%);
+            padding: 1em 2em;
         }
     }
 }
@@ -63,6 +64,9 @@
 .list--open {
     #list {
         left: 0;
-        margin-left: $nav-width;
+
+        @media screen and (min-width: $sm) {
+            margin-left: $nav-width;
+        }
     }
 }
