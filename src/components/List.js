@@ -23,7 +23,7 @@ const List = props => {
                         </div>
                     ))
                 ) : (
-                    <div>0 Notes...</div>
+                    <label>0 Notes...</label>
                 )}
             </div>
         </div>

@@ -19,11 +19,6 @@
         width: 400px;
     }
 
-    &.list--open {
-        left: 0;
-        margin-left: $nav-width;
-    }
-
     .list__item {
         padding: 1.5em 1em;
         border-bottom: 1px solid $color-gray-lite;
@@ -46,5 +41,16 @@
 
     .btn {
         margin-left: auto;
+    }
+}
+
+.list__container{
+    color: lighten($color-text, 40%);
+}
+
+.list--open {
+    #list{
+        left: 0;
+        margin-left: $nav-width;
     }
 }

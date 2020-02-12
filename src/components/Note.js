@@ -2,11 +2,10 @@ import React from 'react'
 //
 const Note = props => (
     <div id="note">
-        <section className="note__header">
+        <section className="note__title">
             <div className="container">
                 <input
                     type="text"
-                    className="note__title"
                     placeholder="Title..."
                     value={props.title}
                     onChange={props.onTitleChange}
@@ -16,7 +15,6 @@ const Note = props => (
         <section className="note__body">
             <div className="container">
                 <textarea
-                    className="note__body"
                     onChange={props.onBodyChange}
                     value={props.body}
                     placeholder="What's on your mind?..."

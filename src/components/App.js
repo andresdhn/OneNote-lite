@@ -19,13 +19,13 @@ class App extends Component {
     handleTitleChange = e => {
         let active = this.state.active
         active.title = e.target.value
-        this.setState({ active: active })
+        this.setState({ active: active, editing: true })
     }
 
     handleBodyChange = e => {
         let active = this.state.active
         active.body = e.target.value
-        this.setState({ active: active })
+        this.setState({ active: active, editing: true })
     }
 
     handleSave = () => {
@@ -55,7 +55,7 @@ class App extends Component {
 
         if (lastNote > 0) {
             let newActive = { id: lastNote, title: '', body: '' }
-            this.setState({ active: newActive, editing: false })
+            this.setState({ active: newActive })
         }
     }
 
@@ -66,12 +66,12 @@ class App extends Component {
     handleSelected = e => {
         let notes = [...this.state.notes]
         let newActive = notes.filter(note => note.id === Number(e.target.id))[0]
-        this.setState({ active: newActive, showList: false })
+        this.setState({ active: newActive })
     }
 
     render() {
         return (
-            <Wrapper>
+            <Wrapper list={this.state.showList}>
                 <List
                     show={this.state.showList}
                     notes={this.state.notes}
