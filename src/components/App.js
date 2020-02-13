@@ -39,17 +39,8 @@ class App extends Component {
         }
 
         let notes = [...this.state.notes]
-        let note = notes.filter(note => note.id === this.state.active.id)
-        if (note.length > 0) {
-            //TODO: Feel like this is wrong - check later
-            notes = notes.map(val => {
-                if (val.id === note.id) {
-                    val.title = note.title
-                    val.body = note.body
-                    val.date = note.date
-                }
-                return val
-            })
+        if (this.state.editing) {
+            notes[this.state.active.id] = this.state.active
         } else {
             notes.push(this.state.active)
         }
@@ -64,13 +55,13 @@ class App extends Component {
             body: '',
             date: getFullDate(),
         }
-        this.setState({ active: newActive })
+        this.setState({ active: newActive, editing: false })
     }
 
     handleSelected = e => {
         let notes = [...this.state.notes]
         let newActive = notes.filter(note => note.id === Number(e.target.id))[0]
-        this.setState({ active: newActive })
+        this.setState({ active: newActive, editing: true })
     }
 
     handleDelete = (e, id) => {
@@ -88,7 +79,6 @@ class App extends Component {
         return (
             <Wrapper list={this.state.showList}>
                 <List
-                    show={this.state.showList}
                     notes={this.state.notes}
                     onSelected={this.handleSelected}
                     onToggle={this.toggleList}
