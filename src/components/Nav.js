@@ -10,7 +10,7 @@ const Nav = props => {
             <Button title="Add new" onClick={props.onNewNote}>
                 +
             </Button>
-            <Button title="Add new" onClick={props.onSave}>
+            <Button title="Save" onClick={props.onSave}>
                 &#10004;
             </Button>
         </div>

@@ -26,16 +26,11 @@ class App extends Component {
         this.setState({ showList: !this.state.showList })
     }
 
-    handleTitleChange = e => {
+    handleChange = e => {
+        let { name, value } = e.target
         let active = this.state.active
-        active.title = e.target.value
-        this.setState({ active: active, editing: true })
-    }
-
-    handleBodyChange = e => {
-        let active = this.state.active
-        active.body = e.target.value
-        this.setState({ active: active, editing: true })
+        active[name] = value
+        this.setState({ active: active })
     }
 
     handleSave = () => {
@@ -99,14 +94,7 @@ class App extends Component {
                     onToggle={this.toggleList}
                     onDelete={this.handleDelete}
                 ></List>
-                <Note
-                    id={this.state.active.id}
-                    title={this.state.active.title}
-                    body={this.state.active.body}
-                    date={this.state.active.date}
-                    onTitleChange={this.handleTitleChange}
-                    onBodyChange={this.handleBodyChange}
-                />
+                <Note note={this.state.active} onChange={this.handleChange} />
                 <Nav
                     onToggleList={this.toggleList}
                     active={this.state.active}

@@ -6,18 +6,20 @@ const Note = props => (
             <div className="container">
                 <input
                     type="text"
+                    name="title"
+                    value={props.note.title}
                     placeholder="Title..."
-                    value={props.title}
-                    onChange={props.onTitleChange}
+                    onChange={props.onChange}
                 />
             </div>
         </section>
         <section className="note__body">
             <div className="container">
-                <label>{props.date}</label>
+                <label>{props.note.date}</label>
                 <textarea
-                    onChange={props.onBodyChange}
-                    value={props.body}
+                    name="body"
+                    value={props.note.body}
+                    onChange={props.onChange}
                     placeholder="What's on your mind?..."
                 ></textarea>
             </div>
