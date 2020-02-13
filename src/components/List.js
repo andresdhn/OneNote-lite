@@ -3,11 +3,11 @@ import Button from './Button'
 //
 const List = props => {
     return (
-        <div id="list" className={props.show ? 'list--open' : ''}>
+        <div id="list">
             <div className="list__header">
                 <h2>Your notes</h2>
                 <Button title="close" onClick={props.onToggle}>
-                    &lt;
+                    &#8592;
                 </Button>
             </div>
             <div className="list__container">
