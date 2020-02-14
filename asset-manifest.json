@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/OneNote-lite/static/css/main.3d7ec150.chunk.css",
+    "main.js": "/OneNote-lite/static/js/main.4fe72f67.chunk.js",
+    "main.js.map": "/OneNote-lite/static/js/main.4fe72f67.chunk.js.map",
+    "runtime-main.js": "/OneNote-lite/static/js/runtime-main.c8cb9f8b.js",
+    "runtime-main.js.map": "/OneNote-lite/static/js/runtime-main.c8cb9f8b.js.map",
+    "static/js/2.ffa0851e.chunk.js": "/OneNote-lite/static/js/2.ffa0851e.chunk.js",
+    "static/js/2.ffa0851e.chunk.js.map": "/OneNote-lite/static/js/2.ffa0851e.chunk.js.map",
+    "index.html": "/OneNote-lite/index.html",
+    "precache-manifest.a1662881b2dc530fa129278c048508cf.js": "/OneNote-lite/precache-manifest.a1662881b2dc530fa129278c048508cf.js",
+    "service-worker.js": "/OneNote-lite/service-worker.js",
+    "static/css/main.3d7ec150.chunk.css.map": "/OneNote-lite/static/css/main.3d7ec150.chunk.css.map",
+    "static/js/2.ffa0851e.chunk.js.LICENSE.txt": "/OneNote-lite/static/js/2.ffa0851e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8cb9f8b.js",
+    "static/js/2.ffa0851e.chunk.js",
+    "static/css/main.3d7ec150.chunk.css",
+    "static/js/main.4fe72f67.chunk.js"
+  ]
+}
