@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4757e30b0bb932ac81166b1fcff9f2c9",
+    "revision": "e19caef792edb68654ff6dd985f7b179",
     "url": "/OneNote-lite/index.html"
   },
   {
-    "revision": "577bdb89ad57c9a412e7",
+    "revision": "17953c2a35c04cd408fb",
     "url": "/OneNote-lite/static/css/main.3d7ec150.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/OneNote-lite/static/js/2.ffa0851e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "577bdb89ad57c9a412e7",
-    "url": "/OneNote-lite/static/js/main.4fe72f67.chunk.js"
+    "revision": "17953c2a35c04cd408fb",
+    "url": "/OneNote-lite/static/js/main.2a7c6f4d.chunk.js"
   },
   {
     "revision": "e818bb6f8e0a97a911d3",
