@@ -61,7 +61,7 @@ class App extends Component {
     handleSelected = e => {
         let notes = [...this.state.notes]
         let newActive = notes.filter(note => note.id === Number(e.target.id))[0]
-        this.setState({ active: newActive, editing: true })
+        this.setState({ active: newActive, editing: true, showList: false })
     }
 
     handleDelete = (e, id) => {
