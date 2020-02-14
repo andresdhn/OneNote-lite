@@ -43,11 +43,11 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#4a9643",
+    "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "display": "standalone",
     "orientation": "portrait",
     "Scope": "/",
-    "start_url": "/?source=pwa",
+    "start_url": "/",
     "splash_pages": null
 }
