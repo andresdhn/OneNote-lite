@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/OneNote-lite/precache-manifest.dc1de1bb02b3f819b35aebbf742d408a.js"
+  "/OneNote-lite/precache-manifest.d1f10caa691bb0561852630a5343c3d7.js"
 );
 
 self.addEventListener('message', (event) => {
