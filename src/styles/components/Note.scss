@@ -1,3 +1,4 @@
+
 #note {
     position: absolute;
     left: 0;
@@ -7,7 +8,8 @@
 
     @media screen and (min-width: $sm) {
         margin-left: $nav-width;
-        width: calc(100vw - 70px);
+        width: calc(100vw - #{$nav-width});
+        min-width: 300px;
     }
 
     .note__title {
@@ -46,10 +48,9 @@
 
 .list--open {
     #note {
-        left: 100vw;
-
         @media screen and (min-width: $sm) {
             left: 400px;
+            width: calc(100vw - #{($list-width + $nav-width)});
         }
     }
 }
